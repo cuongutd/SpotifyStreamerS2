@@ -121,11 +121,16 @@ public class MainActivity extends MyActionBarActivity implements Callback{
 
     @Override
     public void showPlayback(MyArtist artist, ArrayList<MyTrack> tracks, int position) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (mIsTwoPane) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
 
-        PlaybackActivityFragment playbackFragment = new PlaybackActivityFragment();
-        if (fragmentManager.findFragmentByTag("dialog") == null){
-            playbackFragment.show(fragmentManager, "dialog");
+            PlaybackActivityFragment playbackFragment = new PlaybackActivityFragment();
+            if (fragmentManager.findFragmentByTag("dialog") == null) {
+                playbackFragment.show(fragmentManager, "dialog");
+            }
+        }else{
+            Intent intent = new Intent(this, PlaybackActivity.class);
+            startActivity(intent);
         }
     }
 

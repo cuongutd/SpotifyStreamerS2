@@ -142,6 +142,14 @@ public class PlaybackService extends Service {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void createNotification() {
+
+        int currentAnroidVersion = android.os.Build.VERSION.SDK_INT;
+
+        if (currentAnroidVersion < android.os.Build.VERSION_CODES.LOLLIPOP){
+            //notification work
+            return;
+        }
+
         Picasso.with(this).load(getmTrack().getTrackMidImageUrl()).into(target);
 
         MediaSession mediaSession = new MediaSession(this, "session tag");
