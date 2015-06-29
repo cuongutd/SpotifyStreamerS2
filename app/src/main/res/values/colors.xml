@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="grey">#cccccc</color>
+    <color name="spotify_light_brown">#fff4ba00</color>
+    <color name="spotify_brown">#fff49200</color>
+    <color name="spotify_dark_brown">#ffd16600</color>
+</resources>
