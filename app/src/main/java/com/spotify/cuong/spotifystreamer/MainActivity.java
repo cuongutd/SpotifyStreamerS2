@@ -113,7 +113,7 @@ public class MainActivity extends MyActionBarActivity implements Callback{
             getSupportFragmentManager().beginTransaction().replace(R.id.id_fragment_album, df, DETAILFRAGMENT_TAG).commit();
         } else {
             Intent intent = new Intent(this, AlbumActivity.class)
-                    .putExtra(Constants.BUNDLE_TEXT_ARTIST, artistInfo.getParcelable(Constants.BUNDLE_TEXT_ARTIST))
+                    .putExtra(Constants.BUNDLE_TEXT_ARTIST, (MyArtist)artistInfo.getParcelable(Constants.BUNDLE_TEXT_ARTIST))
                     .putExtra(Constants.BUNDLE_TEXT_BOOLEAN_TWO_PANE, mIsTwoPane);
             startActivity(intent);
         }

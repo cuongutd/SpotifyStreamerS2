@@ -164,7 +164,7 @@ public class PlaybackActivityFragment extends DialogFragment implements View.OnC
         //startUpdatingSeekBar();
         Log.d(LOG_TAG, "onResume");
         mMyBroadcastReceiver = new MyBroadcastReceiver();
-        getActivity().registerReceiver(mMyBroadcastReceiver, new IntentFilter("UPDATE_PLAYER"));
+        getActivity().getApplicationContext().registerReceiver(mMyBroadcastReceiver, new IntentFilter("UPDATE_PLAYER"));
         super.onResume();
     }
 
@@ -181,7 +181,7 @@ public class PlaybackActivityFragment extends DialogFragment implements View.OnC
 
         Intent intent = new Intent(this.getActivity(), PlaybackService.class);
 
-        getActivity().bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
+        getActivity().getApplicationContext().bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
 
         mArtistName = (TextView) v.findViewById(R.id.player_artistname_textview);
 
@@ -214,14 +214,14 @@ public class PlaybackActivityFragment extends DialogFragment implements View.OnC
     @Override
     public void onPause() {
         Log.d(LOG_TAG, "onPause");
-        getActivity().unregisterReceiver(mMyBroadcastReceiver);
+        getActivity().getApplicationContext().unregisterReceiver(mMyBroadcastReceiver);
         super.onPause();
     }
 
     @Override
     public void onStop() {
         Log.d(LOG_TAG, "onStop");
-        getActivity().unbindService(mServiceConnection);
+        getActivity().getApplicationContext().unbindService(mServiceConnection);
         super.onStop();
     }
 

@@ -315,7 +315,7 @@ public class PlaybackService extends Service {
     }
 
 
-    public void playNextTrack() {
+    public void playPrevTrack() {
 
         if (mTrackListPosition == 0)
             mTrackListPosition = mTopTracks.size() - 1;
@@ -327,7 +327,7 @@ public class PlaybackService extends Service {
         playNewTrack();
     }
 
-    public void playPrevTrack() {
+    public void playNextTrack() {
         if (mTrackListPosition == mTopTracks.size() - 1)
             mTrackListPosition = 0;
         else
